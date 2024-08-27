@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Car</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h2>Add Car</h2>
+        <form method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="car_name">Car Name</label>
+                <input type="text" class="form-control" name="car_name" required>
+            </div>
+            <div class="form-group">
+                <label for="mfg_year">Manufacturing Year</label>
+                <input type="number" class="form-control" name="mfg_year" required>
+            </div>
+            <div class="form-group">
+                <label for="fuel_type">Fuel Type</label>
+                <input type="text" class="form-control" name="fuel_type" required>
+            </div>
+            <div class="form-group">
+                <label for="transmission">Transmission</label>
+                <input type="text" class="form-control" name="transmission" required>
+            </div>
+            <div class="form-group">
+                <label for="kms_driven">KMs Driven</label>
+                <input type="number" class="form-control" name="kms_driven" required>
+            </div>
+            <div class="form-group">
+                <label for="owners">Number of Owners</label>
+                <input type="number" class="form-control" name="owners" required>
+            </div>
+            <div class="form-group">
+                <label for="price">Price (in Rupees)</label>
+                <input type="number" class="form-control" name="price" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Add Car</button>
+        </form>
+    </div>
+</body>
+</html>

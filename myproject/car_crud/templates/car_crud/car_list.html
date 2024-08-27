@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car List</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h2>Car List</h2>
+        <a href="{% url 'add_car' %}" class="btn btn-success mb-3">Add New Car</a>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Car Name</th>
+                    <th>Manufacturing Year</th>
+                    <th>Fuel Type</th>
+                    <th>Transmission</th>
+                    <th>KMs Driven</th>
+                    <th>Owners</th>
+                    <th>Price</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for car in cars %}
+                <tr>
+                    <td>{{ car.car_name }}</td>
+                    <td>{{ car.mfg_year }}</td>
+                    <td>{{ car.fuel_type }}</td>
+                    <td>{{ car.transmission }}</td>
+                    <td>{{ car.kms_driven }}</td>
+                    <td>{{ car.owners }}</td>
+                    <td>₹ {{ car.price }}</td>
+                    <td>
+                        <a class="btn btn-warning" href="{% url 'update_car' car.id %}">Update</a>
+                        <a class="btn btn-danger" href="{% url 'delete_car' car.id %}">Delete</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
